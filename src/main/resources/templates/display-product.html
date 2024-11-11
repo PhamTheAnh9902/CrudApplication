@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JSP Page</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<h2>List Product</h2>
+		<a href="" class="btn btn-primary">Add Product</a>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>NAME</th>
+					<th>PRICE</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<th:block th:each="product : ${PRODUCTS}">
+					<tr>
+						<td th:text="${product.getId()}"></td>
+						<td th:text="${product.getName()}"></td>
+						<td th:text="${product.getPrice()}"></td>
+						<td><a class="btn btn-primary btn-sm" th:href="@{/product/product-form/{id}(id=${product.getId()})}">Edit</a>|
+							<a class="btn btn-danger btn-sm" th:href="@{/product/product-view/{id}(id=${product.getId()})}">Del</a></td>
+					</tr>
+				</th:block>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
+

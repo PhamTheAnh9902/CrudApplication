@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>JSP Page</title>
+</head>
+<body>
+<div class="container" style="margin-top: 10px;">
+    <div class="row" style="border: 1px darkgrey solid; border-radius: 10px;width: 50%; margin: 0 auto; padding: 20px;" >
+        <div class="col-sm-12">
+            <h2>Thông tin Product</h2>
+            <form th:action="${ACTION}" method=post>
+                <input type="hidden" class="form-control" name="action" >
+                <div class="form-group">
+                    <label>ID Product</label>
+                    <input type="text" class="form-control" name="id"  th:value="${PRODUCT.getId()}"  placeholder="Enter id"  >
+                </div>
+                <div class="form-group">
+                    <label>Name:</label>
+                    <input type="text" class="form-control" name="name" th:value="${PRODUCT.getName()}" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    <input type="text" class="form-control" name="price" th:value="${PRODUCT.getPrice()}" placeholder="Enter price">
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-primary">Cancel</button>
+                <a href="/product/product-view" class="btn btn-primary">Display Product</a>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
